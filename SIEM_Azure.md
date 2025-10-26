@@ -1,4 +1,5 @@
 # SIEM-Azure
+-* https://www.youtube.com/watch?v=g5JL2RIbThM *-
 
 1st Step:
 - Create a resource group in Azure
@@ -35,7 +36,19 @@ IPGEolocation
 - posting ip address to here and it will pop up informations about that ip and we will send these data to our log
 - close all firewalls in vm
 
-SENTINEL Lab Custom:
+SENTINEL Lab Custom: code is included in the another file
+- have your own API key from the geolocation
+
+  when you run the code, the thing it will do is taking the audit failure from the secuirty of the computer's system and send these ip addresses to the ipgeolocation and get these information and save these failued logins in another file
+
+  when someone tries to login and it will save their data to file called 'log.exporter' on vm pc.
+
+
+4st step: creating  a custom log
+- GO to log analytics workshop and create a customized table custom log
+- add your file from the vm, copypaste the logs and create a text file in your pc and upload it in your customized log and create it
+
+  
 
 
 
