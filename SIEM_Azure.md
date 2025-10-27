@@ -7,7 +7,7 @@ Azure subscription -> Resource group
     all firewalls are wide open and anyone can attack lmao'
 log repository is connected to Sentinel 
 
-###Part 1. Setup Azure Subscription
+### Part 1. Setup Azure Subscription
 
 Create Free Azure Subscription: https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account
 
@@ -15,18 +15,18 @@ After your subscription is created, you can login at:
 https://portal.azure.com
 
 
-Part 2. Create the Honey Pot (Azure Virtual Machine)
+### Part 2. Create the Honey Pot (Azure Virtual Machine)
 
 Go to: https://portal.azure.com and search for virtual machines
 
-Create a new Windows 10 virtual machine (choose an appropriate size. If you are in the Cyber Range, the size will be limited. You notice the monthly cost of leaving the VM on 24/7. Be mindful of shutting this off when you are done, or just join the cyber range and we handle the back end expense). Remember the username and password
+Create a new Windows 10 virtual machine (choose an appropriate size). Remember the username and password
 
-Go to the Network Security Group for your virtual machine and create a rule that allows all traffic inbound
+Go to the Network Security Group for your virtual machine and create a rule that allows all inbound traffic
 
-Log into your virtual machine and turn off the windows firewall (start -> wf.msc -> properties -> all off)
+Log into your virtual machine and turn off the Windows firewall (start -> wf.msc -> properties -> all off)
 
 
-Part 3. Logging into the VM and inspecting logs
+### Part 3. Logging into the VM and inspecting logs
 
 Fail 3 logins as “employee” (or some other username)
 
@@ -40,7 +40,7 @@ Next, we are going to create a central log repository called a LAW
 
 
 
-Part 4. Log Forwarding and KQL
+### Part 4. Log Forwarding and KQL
 
 Create Log Analytics Workspace
 
@@ -68,7 +68,7 @@ SecurityEvent
 
 (observe architecture)
 
-Part 5. Log Enrichment and Finding Location Data
+### Part 5. Log Enrichment and Finding Location Data
 
 Observe the SecurityEvent logs in the Log Analytics Workspace; there is no location data, only IP address, which we can use to derive the location data.
 
@@ -83,13 +83,13 @@ Source type: Local File
 Number of lines before row: 0
 Search Key: network
 
-Allow the watchlist to fully import, there should be a total of roughly 54,000 rows.
+Allow the watchlist to fully import; there should be a total of roughly 54,000 rows.
 
 In real life, this location data would come from a live source or it would be updated automatically on the back end by your service provider.
 
 (observe architecture)
 
-Observe the logs now have geographic information, so you can see where the attacks are coming from
+Observe that the logs now have geographic information, so you can see where the attacks are coming from
 
 let GeoIPDB_FULL = _GetWatchlist("geoip");
 let WindowsEvents = SecurityEvent
@@ -102,7 +102,7 @@ WindowsEvents
 
 (observe architecture)
 
-Part 6. Attack Map Creation
+### Part 6. Attack Map Creation
 
 Within Sentine, create a new Workbook
 
