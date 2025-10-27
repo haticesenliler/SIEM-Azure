@@ -7,13 +7,9 @@ Azure subscription -> Resource group
     all firewalls are wide open and anyone can attack lmao'
 log repository is connected to Sentinel 
 
-Part 1. Setup Azure Subscription
+###Part 1. Setup Azure Subscription
 
 Create Free Azure Subscription: https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account
-
-If Azure doesn’t let you create a free account, you can either
-Create a paid subscription and be mindful of shutting down/deleting your resources when you are done, or
-Sign up for the Cyber Range, where you pay a flat fee and get access to Azure, Tenable, Defender for Endpoint, Courses, Labs, Weekly lives, optional Cyber Internship: https://skool.com/cyber-range 
 
 After your subscription is created, you can login at:
 https://portal.azure.com
